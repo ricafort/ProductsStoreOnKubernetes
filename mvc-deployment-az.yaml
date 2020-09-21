@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mvc
-        image: ricafortdocker/products-store-mvc:v2.6 #ricafortdocker/products-store-mvc:v1.0
+        image: ricafortdocker/products-store-mvc:v2.##BUILD_ID##    #v2.6 #ricafortdocker/products-store-mvc:v1.0
         ports:
         - containerPort: 80
         env:

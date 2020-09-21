@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1 #networking.k8s.io/v1beta1 #networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress-host
+spec:
+  tls:
+    - secretName: ricafortdemos-local-tls
+      hosts:
+       - ricafortdemos.local
+  rules:
+  - host: ricafortdemos.local
+    http:
+      paths:
+      #- pathType: Prefix
+      #  path: "/bar"
+        - backend:
+            serviceName: nginx
+            servicePort: 80
+          #service:
+          #  name: mvc-service
+          #  port:
+          #    number: 80
+ 
