@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1 
+kind: Ingress
+metadata:
+  name: fm-ingress-az
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+    - secretName: fm-aks-ingress-tls
+      hosts:
+       - fleetman-az.ricafort.net
+  rules:
+  - host: fleetman-az.ricafort.net
+    http:
+      paths:
+        - backend:
+            serviceName: fleetman-webapp
+            servicePort: 80
+     

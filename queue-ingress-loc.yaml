@@ -1,26 +1,22 @@
----
 apiVersion: extensions/v1beta1 #networking.k8s.io/v1beta1 #networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress-host
-  annotations:
-    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+  name: queue-ingress-host
 spec:
   tls:
-    - secretName: ricafortdemos-local-tls
+    - secretName: queue-ricafortdemos-local-tls
       hosts:
-       - ricafortdemos.local
+       - queue.ricafortdemos.local
   rules:
-  - host: ricafortdemos.local
+  - host: queue.ricafortdemos.local
     http:
       paths:
       #- pathType: Prefix
       #  path: "/bar"
         - backend:
-            serviceName: nginx
-            servicePort: 80
+            serviceName: fleetman-queue
+            servicePort: 8161
           #service:
           #  name: mvc-service
           #  port:
           #    number: 80
- 
