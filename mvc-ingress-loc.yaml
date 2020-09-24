@@ -3,9 +3,15 @@ apiVersion: extensions/v1beta1 #networking.k8s.io/v1beta1 #networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mvc-ingress-host
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  #annotations:
+  #  kubernetes.io/ingress.class: nginx
+  #  nginx.ingress.kubernetes.io/use-regex: "true"
+  #  nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
-    - secretName: products-ricafortdemos-local-tls
+    - secretName: products-local-tls #products-ricafortdemos-local-tls
       hosts:
        - products.ricafortdemos.local
   rules:
