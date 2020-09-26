@@ -6,9 +6,9 @@ spec:
   tls:
     - secretName: queue-ricafortdemos-local-tls
       hosts:
-       - queue.ricafortdemos.local
+       - queue.ricafort.net
   rules:
-  - host: queue.ricafortdemos.local
+  - host: queue.ricafort.net
     http:
       paths:
       #- pathType: Prefix

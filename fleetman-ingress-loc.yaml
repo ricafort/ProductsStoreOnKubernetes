@@ -6,9 +6,9 @@ spec:
   tls:
     - secretName: fleetman-ricafortdemos-local-tls
       hosts:
-       - fleetman.ricafortdemos.local
+       - fleetman.ricafort.net
   rules:
-  - host: fleetman.ricafortdemos.local
+  - host: fleetman.ricafort.net
     http:
       paths:
       #- pathType: Prefix

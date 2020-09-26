@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mvc
-        image: ricafortdocker/products-store-mvc:v1.0
+        image: ricafortdocker/products2-store-mvc:v1.1 #ricafortdocker/products-store-mvc:v1.0
         ports:
         - containerPort: 80
         env:
@@ -39,7 +39,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
-      #nodePort: 30100
-  #type: NodePort
-  type: LoadBalancer
+      #targetPort: 80
+      nodePort: 30100
+  type: NodePort
+  #type: ClusterIP

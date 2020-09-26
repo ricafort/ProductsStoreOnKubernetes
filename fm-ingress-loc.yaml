@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1 
+kind: Ingress
+metadata:
+  name: fm-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+spec:
+  tls:
+    - secretName: letsencrypt-staging-fm
+      hosts:
+       - fleetman.ricafort.net
+  rules:
+  - host: fleetman.ricafort.net
+    http:
+      paths:
+        - backend:
+            serviceName: fleetman-webapp
+            servicePort: 80
+     
